@@ -12,7 +12,7 @@ env:
   GKE_CLUSTER: zooplus-cluster    # update to cluster name
   GKE_ZONE: us-central1-a   # update to cluster zone
   DEPLOYMENT_NAME: zooplus-app # update to deployment name
-  REPOSITORY: zooplus-cluster # update to Artifact Registry docker repository
+  REPOSITORY: zooplus # update to Artifact Registry docker repository
   IMAGE: zooplus-image
 
 jobs:
