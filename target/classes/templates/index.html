@@ -40,9 +40,13 @@
 
             <script>
                 $( "#cryptocurrency" ).change(function () {
+                    var myHeaders = new Headers();
+                    myHeaders.append("Access-Control-Allow-Origin", "*");
+
                     var requestOptions = {
                         method: 'GET',
-                        redirect: 'follow'
+                        redirect: 'follow',
+                        headers: myHeaders
                     };
 
                     var ipAddress = $( "#ip" ).val();
@@ -63,9 +67,13 @@
                 });
 
                 $( "#ipAddress" ).change(function () {
+                    var myHeaders = new Headers();
+                    myHeaders.append("Access-Control-Allow-Origin", "*");
+
                     var requestOptions = {
                         method: 'GET',
-                        redirect: 'follow'
+                        redirect: 'follow',
+                        headers: myHeaders
                     };
 
                     var ipAddress = $( "#ip" ).val();
