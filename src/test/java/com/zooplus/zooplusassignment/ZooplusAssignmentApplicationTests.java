@@ -131,4 +131,9 @@ class ZooplusAssignmentApplicationTests {
 		assertEquals("0", conversionRate[1]);
 	}
 
+	@Test
+	public void testLoadHomePage() throws Exception{
+		this.mockMvc.perform(get("/")).andExpect(status().isOk());
+	}
+
 }
