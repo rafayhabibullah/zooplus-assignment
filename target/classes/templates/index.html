@@ -54,7 +54,7 @@
                         ipAddress = $("#ipAddress").val();
                     var cryptocurrency = $( "#cryptocurrency" ).val();
 
-                    fetch("/conversion?ipAddress="+ipAddress+"&currency="+cryptocurrency, requestOptions)
+                    fetch("http://"+window.location.host+"/conversion?ipAddress="+ipAddress+"&currency="+cryptocurrency, requestOptions)
                         .then(response => response.text())
                         .then(result =>
                             document.getElementById("conversion").innerHTML = (JSON.parse(result).conversionRate))
@@ -82,7 +82,7 @@
 
                     var cryptocurrency = $( "#cryptocurrency" ).val();
 
-                    fetch("/conversion?ipAddress="+ipAddress+"&currency="+cryptocurrency, requestOptions)
+                    fetch("http://"+window.location.host+"/conversion?ipAddress="+ipAddress+"&currency="+cryptocurrency, requestOptions)
                         .then(response => response.text())
                         .then(result =>
                             document.getElementById("conversion").innerHTML = (JSON.parse(result).conversionRate))
