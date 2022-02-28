@@ -1,6 +1,8 @@
 package com.zooplus.zooplusassignment.service;
 
 import com.zooplus.zooplusassignment.model.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -14,6 +16,9 @@ import java.util.Locale;
 
 @Service
 public class CryptoService {
+
+    private static final Logger log = LoggerFactory.getLogger(CryptoService.class);
+
     @Value("${crypto.currencies.api.list.url}")
     private String currenciesListUrl;
 
@@ -27,12 +32,14 @@ public class CryptoService {
     private LocationService locationService;
 
     public List<Currency> listOfCryptoCurrencies() {
+        log.info("get all cryptocurrencies");
         RestTemplate restTemplate = new RestTemplate();
         Currencies currenciesResponse = restTemplate.getForObject(
                 currenciesListUrl+"?access_key="+currenciesAPIAccessKey, Currencies.class);
         List<Currency> currencies = new ArrayList<>();
         if (currenciesResponse == null || !currenciesResponse.getSuccess()
                 || currenciesResponse.getCrypto().isEmpty()) {
+            log.info("unable to fetch cryptocurrencies");
             return currencies;
         }
         currencies = new ArrayList<>(currenciesResponse.getCrypto().values());
@@ -46,6 +53,7 @@ public class CryptoService {
     }
 
     public Double covertCrptoToTargetCurrency(String currency, String targetCurrencyCode) {
+        log.info("convert " + currency + " to " + targetCurrencyCode);
         RestTemplate restTemplate = new RestTemplate();
         ConversionRate currencyConversionRateResponse = restTemplate.getForObject(
                 currencyConversionUrl+"?access_key="+currenciesAPIAccessKey
@@ -53,6 +61,7 @@ public class CryptoService {
         if(currencyConversionRateResponse == null || !currencyConversionRateResponse.isSuccess() ||
             currencyConversionRateResponse.getRates() == null ||
                 currencyConversionRateResponse.getRates().isEmpty()) {
+            log.info("UNABLE to convert " + currency + "to " + targetCurrencyCode);
             return 0d;
         }
         return currencyConversionRateResponse.getRates().get(currency);

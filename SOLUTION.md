@@ -5,7 +5,11 @@ current localized price of a cryptocurrency.
 
 It is important that the price is displayed with currency symbol and correct decimal separator.
 
+**If the IP entered is not valid conversion will be returned in EUR.**
+
 # Application Link - http://34.68.101.144/
+
+![](docs/webapp-screenshot.png)
 
 # Currency Conversion Data
 Below APIs are used to fetch cryptocurrency conversion and IP location
