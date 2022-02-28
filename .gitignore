@@ -1,7 +1,6 @@
-target/
-
+target/*
 # Compiler file
-*/.idea/
+/.idea/
 
 # Compiled class file
 *.class
