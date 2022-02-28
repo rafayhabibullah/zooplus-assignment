@@ -1,2 +1,0 @@
-# zooplus-assignment
-Zooplus Assignment
