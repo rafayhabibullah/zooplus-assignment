@@ -49,3 +49,5 @@ GitHub action is used here to create 2 workflows
 - Deploy the application to Google Cloud
 
 # API Documentation
+- [Swagger] (http://34.68.101.144/swagger-ui/index.html) API documentation
+- [Swagger] (http://34.68.101.144/api-docs) API docs
